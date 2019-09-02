@@ -6,7 +6,7 @@ var router = express.Router();
 
 
 router.get("/", (req, res) => {
-    burger.all((data) => {
+    burger.burgers.all((data) => {
         let burgObj = {
             burgers: data
         };
@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/burgers", function (req, res) {
-    cat.create(["name", "devoured"], [req.body.name, req.body.devoured], function (result) {
-        // Send back the ID of the new quote
+    burger.burgers.create(["name", "devoured"], [req.body.name, req.body.devoured], function (result) {
+        
         res.json({ id: result.insertId });
     });
 });
@@ -26,7 +26,7 @@ router.put("/api/burgers/:id", function (req, res) {
 
     console.log("condition", condition);
 
-    cat.update(
+    burger.update(
         {
             devoured: req.body.devoured
         },
