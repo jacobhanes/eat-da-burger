@@ -1,6 +1,6 @@
 const orm = require("../config/orm")
 
-const burgers = {
+const burger = {
     all: function(cb) {
         orm.all("burgers", function(res) {
           cb(res);
@@ -19,4 +19,4 @@ const burgers = {
       }
 }
 
-module.exports = (burgers);
+module.exports = (burger);
